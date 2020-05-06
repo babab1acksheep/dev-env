@@ -1,0 +1,11 @@
+{
+	"version":2,
+	"builds":[{"src":"./buildScripts/srcServer.js","use":"@now/node-server"}],
+	"routes": [
+		{
+				"src": "/",
+				"dest": "./buildScripts/srcServer.js",
+				"methods": ["GET"]
+		}
+]
+}

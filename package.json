@@ -1,0 +1,69 @@
+{
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/user/javascript-development-environment.git"
+	},
+	"name": "javascript-development-environment",
+	"version": "1.0.0",
+	"description": "JavaScript development environment ",
+	"scripts": {
+		"prestart": "babel-node buildScripts/startMessage.js",
+		"start": "npm-run-all --parallel open:src lint:watch test:watch",
+		"open:src": "babel-node buildScripts/srcServer.js",
+		"lint": "esw webpack.config.* src buildScripts --color",
+		"lint:watch": "npm run lint -- --watch",
+		"test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+		"test:watch":"npm run test -- --watch"
+	},
+	"author": "Aravinth Chandramouli",
+	"license": "MIT",
+	"dependencies": {
+		"fs": "0.0.1-security",
+		"whatwg-fetch": "^3.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.9.6",
+		"@babel/node": "^7.8.7",
+		"@babel/preset-env": "^7.9.6",
+		"@babel/register": "^7.9.0",
+		"babel-core": "^7.0.0-bridge.0",
+		"babel-loader": "^8.1.0",
+		"chai": "^4.2.0",
+		"chalk": "^2.4.1",
+		"cheerio": "^1.0.0-rc.2",
+		"compression": "^1.7.3",
+		"cross-env": "^5.2.0",
+		"css-loader": "^2.1.1",
+		"eslint": "^5.16.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-watch": "^4.0.2",
+		"express": "^4.16.4",
+		"extract-text-webpack-plugin": "^3.0.2",
+		"jsdom": "^13.2.0",
+		"json-schema-faker": "^0.5.0-rc16",
+		"json-server": "^0.16.1",
+		"localtunnel": "^1.9.1",
+		"lodash": "^4.17.11",
+		"mocha": "^5.2.0",
+		"nock": "^10.0.4",
+		"npm-run-all": "^4.1.5",
+		"nsp": "^3.2.1",
+		"numeral": "^2.0.6",
+		"open": "0.0.5",
+		"rimraf": "^2.6.2",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.43.0",
+		"webpack-dev-middleware": "^3.4.0",
+		"webpack-hot-middleware": "^2.24.3",
+		"webpack-md5-hash": "0.0.6"
+	},
+	"comments": {
+		"babel-preset-latest": "deprecated and babel-preset-env replaced",
+		"nsp": "deprecated, no alternate package, nsp built-in npm@6"
+	},
+	"resolutions": {
+		"babel-core": "7.0.0-bridge.0"
+	}
+}
